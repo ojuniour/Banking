@@ -8,7 +8,7 @@ using System.Web.Http;
 namespace Bank.Controllers
 {
     [Authorize]
-    public class ValuesController : ApiController
+    public class CustomerController : ApiController
     {
         // GET api/values
         public IEnumerable<string> Get()
