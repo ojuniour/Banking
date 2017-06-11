@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
@@ -15,9 +16,10 @@ namespace Bank
 
             routes.MapRoute(
                 name: "Default",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                url: "api/{controller}/{action}/{id}",
+                defaults: new { id = UrlParameter.Optional }
             );
+
         }
     }
 }

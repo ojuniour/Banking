@@ -1,0 +1,17 @@
+﻿<div ng-controller="Login">
+    <form name="loginForm" ng-submit="submit(loginForm.$valid)">
+        <div>
+            <span> Username</span> <input ng-model="username.value" ng-pattern="username.regex" required />
+            {{username.value? 'PASS' : 'FAILED'}}
+        </div>
+        <div>
+            <span> Password</span> <input ng-model="password.value" ng-pattern="password.regex" required type="password" />
+            {{password.value? 'PASS' : 'FAILED'}}
+        </div>
+        <div>
+            <button ng-submit="submit(loginForm.$valid)">login</button>
+        </div>
+
+        <a href="../Dashboard/index.html">TEST TO LOGIN</a>
+    </form>
+</div>

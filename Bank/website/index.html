@@ -1,12 +1,16 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <title></title>
-	<meta charset="utf-8" />
+    <title>Web TEST</title>
+    <meta charset="utf-8" />
+    <script src="../Scripts/angular.js"></script>
+    <script src="Scripts/AngularUI/ui-router.js"></script>
+    <script src="/Scripts/angular/Main.js"></script>
 </head>
-<body>
-    Master layer
-    big big small
-    alal
+<body ng-app="App">
+
+    <div ui-view></div>
+    <a ui-sref="login" ui-sref-active="active">login</a>
+    <a ui-sref="dashboard" ui-sref-active="active">About</a>
 </body>
 </html>
