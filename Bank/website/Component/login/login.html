@@ -1,4 +1,5 @@
-﻿<div ng-controller="Login">
+﻿
+<div ng-controller="Login">
     <form name="loginForm" ng-submit="submit(loginForm.$valid)">
         <div>
             <span> Username</span> <input ng-model="username.value" ng-pattern="username.regex" required />
@@ -15,3 +16,7 @@
         <a href="../Dashboard/index.html">TEST TO LOGIN</a>
     </form>
 </div>
+
+<lazy type="js">
+    <script src="../login/loginController.js"></script>
+</lazy>

@@ -1,16 +1,17 @@
 ﻿<!DOCTYPE html>
-<html>
+<html ng-app="App">
 <head>
-    <title>Web TEST</title>
+    <base href="/"> 
     <meta charset="utf-8" />
-    <script src="../Scripts/angular.js"></script>
-    <script src="Scripts/AngularUI/ui-router.js"></script>
-    <script src="/Scripts/angular/Main.js"></script>
+    <script src="dashboard/Scripts/angular.js"></script>
+    <script src="dashboard/Scripts/AngularUI/ui-router.js"></script>
+    <script src="dashboard/Assets/Scripts/appController.js"></script>
+    <script src="dashboard/Assets/Scripts/routes.js"></script>
+    <title ng-controller="PageTitle">{{::title}}</title>
 </head>
-<body ng-app="App">
-
-    <div ui-view></div>
+<body>
     <a ui-sref="login" ui-sref-active="active">login</a>
     <a ui-sref="dashboard" ui-sref-active="active">About</a>
+    <div ui-view>Default PAGE</div>
 </body>
 </html>
