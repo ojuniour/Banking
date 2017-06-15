@@ -1,6 +1,8 @@
 ﻿
-App.controller("PageTitle", pageTitle);
-App.controller("Login", login);
+//App.controller("PageTitle", pageTitle);
+//angular.module('App').controller("Login", login);
+
+angular.module("App").controller("Login", function () { });
 
 
 function pageTitle($scope) {

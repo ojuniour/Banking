@@ -4,15 +4,34 @@
     <base href="/"> 
     <meta charset="utf-8" />
     <script src="Scripts/angular.js"></script>
-    <script src="Scripts/AngularUI/ui-router.js"></script>
+    <script src="Scripts/angular-ui-router.js"></script>
+    <script src="node_modules/oclazyload/dist/ocLazyLoad.js"></script>
     <script src="Assets/Scripts/appController.js"></script>
     <script src="Assets/Scripts/routes.js"></script>
-    <script src="node_modules/oclazyload/dist/ocLazyLoad.js"></script>
     <title ng-controller="PageTitle">{{::title}}</title>
 </head>
 <body>
+    <div ng-controller="loadjs"></div>
     <a ui-sref="login" ui-sref-active="active">login</a>
     <a ui-sref="dashboard" ui-sref-active="active">About</a>
     <div ui-view>Default PAGE.</div>
+
+    <div ng-controller="Login">
+        <form name="loginForm" ng-submit="submit(loginForm.$valid)">
+            <div>
+                <span> Username</span> <input ng-model="username.value" ng-pattern="username.regex" required />
+                {{username.value? 'PASS' : 'FAILED'}}
+            </div>
+            <div>
+                <span> Password</span> <input ng-model="password.value" ng-pattern="password.regex" required type="password" />
+                {{password.value? 'PASS' : 'FAILED'}}
+            </div>
+            <div>
+                <button ng-submit="submit(loginForm.$valid)">login</button>
+            </div>
+
+            <a href="../Dashboard/index.html">TEST TO LOGIN</a>
+        </form>
+    </div>
 </body>
 </html>
