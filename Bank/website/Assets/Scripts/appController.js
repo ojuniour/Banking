@@ -1,4 +1,4 @@
-﻿var App = angular.module("App", ['ui.router']);
+﻿var App = angular.module("App", ['ui.router', 'oc.lazyLoad']);
 
 App.controller("PageTitle", pageTitle);
 
