@@ -1,6 +1,5 @@
 ﻿var App = angular.module("App", ['ui.router']);
 
-
 App.controller("PageTitle", pageTitle);
 
 function pageTitle($scope) {

@@ -97,6 +97,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\Scripts\routes.js" />
+    <Content Include="Component\dashboard\dashboard.js" />
     <Content Include="Component\home\index.html" />
     <Content Include="Component\dashboard\dashboard.html" />
     <Content Include="Component\login\loginController.js" />
