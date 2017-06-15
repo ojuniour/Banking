@@ -5,6 +5,18 @@ function pageTitle($scope) {
 };
 
 
-App.controller('loadjs', function ($ocLazyLoad,$scope) {
-    $ocLazyLoad.load('Component/login/loginController.js');
+App.factory('routeFactory', function () {
+    // var routeArray = {};
+    return {
+        routeArray:
+        function (name, url) {
+            return console.log(name + url);
+        }
+    };
+    //routeArray.route = dashboardPage;
+    //return routeArray;
+});
+
+App.controller('loadjs', function (routeFactory) {
+    //routeFactory.routeArray("love", "love.com");
 })

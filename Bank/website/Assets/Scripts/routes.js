@@ -1,11 +1,16 @@
-﻿App.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
+﻿App.config(function ($stateProvider, $urlRouterProvider, $locationProvider, routeFactory) {
     $urlRouterProvider.otherwise('*path');
 
     var home = {
         name: 'home',
         url: '/',
         controller: 'loadjs',
-        reloadOnSearch: true
+        reloadOnSearch: true,
+        resolve: {
+            loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
+                return $ocLazyLoad.load('Component/home/homeController.js');
+            }]
+        }
     };
 
     var loginPage = {
@@ -13,24 +18,44 @@
         url: '/login',
         controller: 'loadjs',
         templateUrl: 'Component/login/login.html',
+        resolve: {
+            loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
+                return $ocLazyLoad.load('Component/login/loginController.js');
+            }]
+        }
     };
 
     var dashboardPage = {
         name: 'dashboard',
         url: '/dashboard',
         templateUrl: 'Component/dashboard/dashboard.html',
+        resolve: {
+            loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
+                return $ocLazyLoad.load('Component/dashboard/dashboardController.js');
+            }]
+        }
     };
 
     var logout = {
         name: 'logout',
         url: '/logout',
         templateUrl: 'Component/logout/logout.html',
+        resolve: {
+            loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
+                return $ocLazyLoad.load('Component/logout/logoutController.js');
+            }]
+        }
     }
 
     var error_404 = {
         name: 'error_404',
         url: '*path',
-        template: "Doesn't exist",
+        templateUrl: "Component/error/error_404.html",
+        resolve: {
+            loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
+                return $ocLazyLoad.load('Component/error/404.js');
+            }]
+        }
     }
 
     $stateProvider.state(home);
