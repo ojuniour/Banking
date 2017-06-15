@@ -4,12 +4,14 @@
     var home = {
         name: 'home',
         url: '/',
+        controller: 'loadjs',
         reloadOnSearch: true
     };
 
     var loginPage = {
         name: 'login',
         url: '/login',
+        controller: 'loadjs',
         templateUrl: 'Component/login/login.html',
     };
 

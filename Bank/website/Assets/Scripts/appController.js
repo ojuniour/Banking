@@ -1,5 +1,4 @@
 ﻿var App = angular.module("App", ['ui.router', 'oc.lazyLoad']);
-
 App.controller("PageTitle", pageTitle);
 function pageTitle($scope) {
     $scope.title = "Welcome Page";
@@ -9,5 +8,3 @@ function pageTitle($scope) {
 App.controller('loadjs', function ($ocLazyLoad,$scope) {
     $ocLazyLoad.load('Component/login/loginController.js');
 })
-
-angular.module("App").controller("Login", function () { });
