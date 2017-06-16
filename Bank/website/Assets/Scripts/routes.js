@@ -1,4 +1,4 @@
-﻿App.config(function ($stateProvider, $urlRouterProvider, $locationProvider, routeFactory) {
+﻿App.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
     $urlRouterProvider.otherwise('*path');
 
     var home = {

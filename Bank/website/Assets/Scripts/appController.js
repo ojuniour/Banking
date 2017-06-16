@@ -1,21 +1,32 @@
 ﻿var App = angular.module("App", ['ui.router', 'oc.lazyLoad']);
+/////////////////////////////////////////////////////////////////////
+
 App.controller("PageTitle", pageTitle);
 function pageTitle($scope) {
     $scope.title = "Welcome Page";
 };
 
 
-App.factory('routeFactory', function () {
+
+
+
+App.provider('routeFactory', function () {
     // var routeArray = {};
-    return {    
-        routeArray: function (name) {
-            return console.log(name);
+
+
+    var ret = function () {
+        return {
+            routeArray: function (name) {
+                console.log(name)
+            }
         }
     };
-    //routeArray.route = dashboardPage;
-    //return routeArray;
+       this.$get = ret; 
+    
 });
 
-//App.controller('loadjs', function (routeFactory) {
-    //routeFactory.routeArray("love", "love.com");
-//})
+
+
+App.controller('loadjs', function (routeFactory) {
+    routeFactory.routeArray("love");
+}); 

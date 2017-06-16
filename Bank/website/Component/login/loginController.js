@@ -1,4 +1,4 @@
-﻿var app = angular.module('App');
+﻿///var app = angular.module('App');
 
 angular.module('App').controller("PageTitle", pageTitle);
 angular.module('App').controller('Login', login);
