@@ -7,16 +7,15 @@ function pageTitle($scope) {
 
 App.factory('routeFactory', function () {
     // var routeArray = {};
-    return {
-        routeArray:
-        function (name, url) {
-            return console.log(name + url);
+    return {    
+        routeArray: function (name) {
+            return console.log(name);
         }
     };
     //routeArray.route = dashboardPage;
     //return routeArray;
 });
 
-App.controller('loadjs', function (routeFactory) {
+//App.controller('loadjs', function (routeFactory) {
     //routeFactory.routeArray("love", "love.com");
-})
+//})
