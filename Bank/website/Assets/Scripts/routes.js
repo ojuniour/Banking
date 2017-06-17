@@ -1,6 +1,22 @@
-﻿App.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
+﻿angular.module('App').provider('Provider', function () {
+    this.$get = function () {
+        var appname = "Lawyer App";
+        return {
+            appName: appname
+        };
+    }
+});
+
+App.config(function ($stateProvider, $urlRouterProvider, $locationProvider, Provider) {
     $urlRouterProvider.otherwise('*path');
 
+    var roll = [];
+
+    roll = { home: 'home'};
+   
+
+   // console.log(roll);
+    //console.log(roll[0]);
     var home = {
         name: 'home',
         url: '/',
@@ -25,6 +41,7 @@
         }
     };
 
+
     var dashboardPage = {
         name: 'dashboard',
         url: '/dashboard',
@@ -45,7 +62,7 @@
                 return $ocLazyLoad.load('Component/logout/logoutController.js');
             }]
         }
-    }
+    };
 
     var error_404 = {
         name: 'error_404',
@@ -56,7 +73,7 @@
                 return $ocLazyLoad.load('Component/error/404.js');
             }]
         }
-    }
+    };
 
     $stateProvider.state(home);
     $stateProvider.state(loginPage);

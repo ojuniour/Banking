@@ -7,26 +7,30 @@ function pageTitle($scope) {
 };
 
 
+App.service('RouteService', function () {
+    this.routeArray = [];
+    this.route = {};
 
+    this.setRoute = function (name, url, tmpl) {
+        var routein = {
+            name: '',
+            url: '',
+            tmpl: ''
+        };
 
-
-App.provider('routeFactory', function () {
-    // var routeArray = {};
-
-
-    var ret = function () {
-        return {
-            routeArray: function (name) {
-                console.log(name)
-            }
-        }
-    };
-       this.$get = ret; 
-    
+        this.routeArray.push(routein);
+        this.route[name] = { routein };
+    }
 });
 
 
-
-App.controller('loadjs', function (routeFactory) {
-    routeFactory.routeArray("love");
+App.controller('loadjs',function (RouteService) {
+    //routeFactory.name("this is URL");
+   // routeFactory.url("this is URL")
+    //routeFactory.controller("this controller");
+    RouteService.setRoute("love", 'king', 'jay');
+    RouteService.setRoute("Slave", 'queen', 'jack')
+    console.log(RouteService.routeArray);
+    console.log(RouteService.route.love);
+    //console.log(RouteService.arr.route.name);
 }); 
