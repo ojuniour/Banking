@@ -104,6 +104,7 @@
     <Content Include="Component\error\error_404.html" />
     <Content Include="Component\error\errorController.js" />
     <Content Include="Component\home\homeController.js" />
+    <Content Include="Component\home\home.html" />
     <Content Include="Component\login\loginController.js" />
     <Content Include="Component\login\login.html" />
     <Content Include="Component\logout\logout.html" />
