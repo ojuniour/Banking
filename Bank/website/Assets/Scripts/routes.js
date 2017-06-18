@@ -15,11 +15,11 @@ App.config(function ($stateProvider, $urlRouterProvider, $locationProvider,Route
     };
 
     //$stateProvider.state(home);
-    RouteServiceProvider.setRoute("home",'/',null);
+    RouteServiceProvider.setRoute("home",'',null);
     RouteServiceProvider.setRoute("login");
     RouteServiceProvider.setRoute("dashboard");
     RouteServiceProvider.setRoute("logout");
-    RouteServiceProvider.setRoute("error_404");
+    RouteServiceProvider.setRoute("error_404",'*path',null,'Component/error/errorController.js');
     RouteServiceProvider.registerRoutes();
 
     $locationProvider.html5Mode(true);
