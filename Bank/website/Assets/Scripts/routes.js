@@ -1,22 +1,8 @@
-﻿angular.module('App').provider('Provider', function () {
-    this.$get = function () {
-        var appname = "Lawyer App";
-        return {
-            appName: appname
-        };
-    }
-});
-
-App.config(function ($stateProvider, $urlRouterProvider, $locationProvider, Provider) {
+﻿
+App.config(function ($stateProvider, $urlRouterProvider, $locationProvider,RouteServiceProvider) {
     $urlRouterProvider.otherwise('*path');
+ 
 
-    var roll = [];
-
-    roll = { home: 'home'};
-   
-
-   // console.log(roll);
-    //console.log(roll[0]);
     var home = {
         name: 'home',
         url: '/',
@@ -63,7 +49,7 @@ App.config(function ($stateProvider, $urlRouterProvider, $locationProvider, Prov
             }]
         }
     };
-
+  
     var error_404 = {
         name: 'error_404',
         url: '*path',
@@ -75,9 +61,44 @@ App.config(function ($stateProvider, $urlRouterProvider, $locationProvider, Prov
         }
     };
 
+    RouteServiceProvider.setRoute("login").register
+    console.log(RouteServiceProvider.route.login);
+    console.log(loginPage);
     $stateProvider.state(home);
-    $stateProvider.state(loginPage);
+    $stateProvider.state(RouteServiceProvider.route.login);
     $stateProvider.state(dashboardPage);
     $stateProvider.state(error_404);
     $locationProvider.html5Mode(true);
-}); 
+
+ 
+   // console.log(RouteServiceProvider.routeArray);
+    //console.log(RouteServiceProvider.route.login);
+
+
+});
+
+App.provider('RouteService', function () {
+    //this.routeArray = [];
+    this.love = "king";
+    return {
+        $get: function(){ return this.love},
+        routeArr: "king",
+        setRoute: function (name, url, tmpl, resolveJS) {
+            var routein = {
+                name: name,
+                url: (url ? url : '/' + name),
+                templateUrl: (tmpl ? tmpl : 'Component/' + name + '/' + name + '.html'),
+                controller: 'loadjs',
+                resolve: {
+                    loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad, resolveJS) {
+                        return $ocLazyLoad.load(resolveJS ? resolveJS : 'Component/' + name + '/' + name + 'Controller.js');
+                    }]
+                }
+            };
+            this.routeArray = [];
+            this.route = {};
+            this.routeArray.push(routein); //add route object to array
+            this.route[name] = routein;// store route by its name by creating and add dynamic object properties.
+        }
+    }
+});
