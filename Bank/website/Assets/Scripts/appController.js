@@ -9,7 +9,8 @@ function pageTitle($scope) {
 
 
 
-App.controller('loadjs',function (RouteService) {
+App.controller('loadjs', function ($scope) {
+    $scope.pageTitle = "jk";
     //RouteService.setRoute("king");
     //RouteService.setRoute("Slave", 'queen', 'jack', 'love');
     //console.log(RouteService.routeArray);

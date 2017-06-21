@@ -1,27 +1,14 @@
 ﻿
-App.config(function ($stateProvider, $urlRouterProvider, $locationProvider,RouteServiceProvider) {
-    $urlRouterProvider.otherwise('*path');
- 
-    var home = {
-        name: 'home',
-        url: '/',
-        controller: 'loadjs',
-        reloadOnSearch: true,
-        resolve: {
-            loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
-                return $ocLazyLoad.load('Component/home/homeController.js');
-            }]
-        }
-    };
+App.config(function ($stateProvider, $urlRouterProvider, $locationProvider, RouteServiceProvider) {
+    $urlRouterProvider.otherwise('/Component/error/error_404.html');
 
-    //$stateProvider.state(home);
-    RouteServiceProvider.setRoute("home",'',null);
+    RouteServiceProvider.setRoute("home",'','index.html');
     RouteServiceProvider.setRoute("login");
     RouteServiceProvider.setRoute("dashboard");
     RouteServiceProvider.setRoute("logout");
-    RouteServiceProvider.setRoute("error_404",'*path',null,'Component/error/errorController.js');
-    RouteServiceProvider.registerRoutes();
+    RouteServiceProvider.setRoute("error_404", '/Component/error/error_404.html', null, 'Component/error/errorController.js');
 
+    RouteServiceProvider.registerRoutes();
     $locationProvider.html5Mode(true);
 });
 
@@ -29,7 +16,7 @@ App.provider('RouteService', function ($stateProvider) {
     this.route = {};
     this.routeArray = [];
     return {
-        $get: function () { return this.love },
+        $get: function () { return this},
         routeArray: this.routeArray,
         route: this.route,
         registerRoutes: function () {
@@ -41,12 +28,12 @@ App.provider('RouteService', function ($stateProvider) {
         setRoute: function (name, url, tmpl, resolveJS) {
             var routein = {
                 name: name,
-                url: (url ? url : '/' + name),
-                templateUrl: (tmpl ? tmpl : 'Component/' + name + '/' + name + '.html'),
+                url: (url != null ? url : '/' + name),
+                templateUrl: (tmpl != null ? tmpl : 'Component/' + name + '/' + name + '.html'),
                 controller: 'loadjs',
                 resolve: {
-                    loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad, resolveJS) {
-                        return $ocLazyLoad.load(resolveJS ? resolveJS : 'Component/' + name + '/' + name + 'Controller.js');
+                    loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
+                        return $ocLazyLoad.load(resolveJS != null ? resolveJS : 'Component/' + name + '/' + name + 'Controller.js');
                     }]
                 }
             };
