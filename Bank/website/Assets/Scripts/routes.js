@@ -1,13 +1,13 @@
 ﻿
 App.config(function ($stateProvider, $urlRouterProvider, $locationProvider, RouteServiceProvider) {
-    $urlRouterProvider.otherwise('/Component/error/error_404.html');
+    $urlRouterProvider.otherwise('*path');
 
     RouteServiceProvider.setRoute("home",'','index.html');
     RouteServiceProvider.setRoute("login");
     RouteServiceProvider.setRoute("dashboard");
     RouteServiceProvider.setRoute("logout");
-    RouteServiceProvider.setRoute("error_404", '/Component/error/error_404.html', null, 'Component/error/errorController.js');
-
+    RouteServiceProvider.setRoute("error_404", '*path', null, 'Component/error/errorController.js');
+    //test/
     RouteServiceProvider.registerRoutes();
     $locationProvider.html5Mode(true);
 });
