@@ -3,6 +3,7 @@
 <head>
     <base href="/"> 
     <meta charset="utf-8" />
+    <link href="/Assets/Images/favicon.ico" rel="icon" type="image/x-icon" />
     <script src="Scripts/angular.js"></script>
     <script src="node_modules/oclazyload/dist/ocLazyLoad.js"></script>
     <script src="Assets/Scripts/appController.js"></script>
@@ -14,6 +15,6 @@
     <a ui-sref="home" ui-sref-active="active">Home</a>
     <a ui-sref="login" ui-sref-active="active">Login</a>
     <a ui-sref="dashboard" ui-sref-active="active">About</a>
-    <div ui-view>Default PAGE.</div>
+    <ui-view />
 </body>
 </html>

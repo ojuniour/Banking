@@ -2,19 +2,18 @@
 App.config(function ($stateProvider, $urlRouterProvider, $locationProvider, RouteServiceProvider) {
     $urlRouterProvider.otherwise('*path');
 
-    RouteServiceProvider.setRoute("home",'','index.html');
-    RouteServiceProvider.setRoute("login");
+    RouteServiceProvider.setRoute("home", "Welcome to the HomePage",'/');
+    RouteServiceProvider.setRoute("login","Login Page");
     RouteServiceProvider.setRoute("dashboard");
     RouteServiceProvider.setRoute("logout");
-    RouteServiceProvider.setRoute("error_404", '*path', null, 'Component/error/errorController.js');
-    //test/
+    RouteServiceProvider.setRoute("error",null, '*path', 'Component/error/error_404.html');
     RouteServiceProvider.registerRoutes();
     $locationProvider.html5Mode(true);
 });
 
 App.provider('RouteService', function ($stateProvider) {
-    this.route = {};
-    this.routeArray = [];
+    this.route = {}; //returns routes (object)
+    this.routeArray = []; //retuns (array of routes (objects)
     return {
         $get: function () { return this},
         routeArray: this.routeArray,
@@ -25,14 +24,15 @@ App.provider('RouteService', function ($stateProvider) {
                 console.log(route);
             })
         },
-        setRoute: function (name, url, tmpl, resolveJS) {
+        setRoute: function (name, pageTitle, url, tmpl, resolveJS) {
             var routein = {
                 name: name,
                 url: (url != null ? url : '/' + name),
                 templateUrl: (tmpl != null ? tmpl : 'Component/' + name + '/' + name + '.html'),
-                controller: 'loadjs',
+                controller: '',
                 resolve: {
-                    loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
+                    loadMyCtrl: ['$ocLazyLoad','$rootScope', function ($ocLazyLoad, $rootScope) {
+                        $rootScope.title = (pageTitle == null ? name : pageTitle) ;
                         return $ocLazyLoad.load(resolveJS != null ? resolveJS : 'Component/' + name + '/' + name + 'Controller.js');
                     }]
                 }

@@ -98,6 +98,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Images\favicon.ico" />
     <Content Include="Assets\Scripts\routes.js" />
     <Content Include="Component\dashboard\dashboardController.js" />
     <Content Include="Component\dashboard\dashboard.html" />
