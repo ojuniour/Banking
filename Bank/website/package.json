@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "devDependencies": {
     "angular-ui-router": "^1.0.3",
+    "browser-sync": "^2.18.12",
     "oclazyload": "^1.1.0"
   }
 }

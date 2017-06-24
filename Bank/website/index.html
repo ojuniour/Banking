@@ -4,17 +4,20 @@
     <base href="/"> 
     <meta charset="utf-8" />
     <link href="/Assets/Images/favicon.ico" rel="icon" type="image/x-icon" />
+    <link href="Assets/Styles/main.css" rel="stylesheet" />
+    <title ng-controller="PageTitle">{{title}}</title>
+</head>
+<body>
+    <ui-view />
+
+    <script id="__bs_script__">
+//<![CDATA[
+    document.write("<script async src='http://HOST:3002/browser-sync/browser-sync-client.js?v=2.18.12'><\/script>".replace("HOST", location.hostname));
+//]]></script>
     <script src="Scripts/angular.js"></script>
     <script src="node_modules/oclazyload/dist/ocLazyLoad.js"></script>
     <script src="Assets/Scripts/appController.js"></script>
     <script src="Scripts/angular-ui-router.js"></script>
     <script src="Assets/Scripts/routes.js"></script>
-    <title ng-controller="PageTitle">{{title}}</title>
-</head>
-<body>
-    <a ui-sref="home" ui-sref-active="active">Home</a>
-    <a ui-sref="login" ui-sref-active="active">Login</a>
-    <a ui-sref="dashboard" ui-sref-active="active">About</a>
-    <ui-view />
 </body>
 </html>
