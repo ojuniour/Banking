@@ -9,6 +9,8 @@ using Bank.Models;
 namespace Bank.Controllers
 {
     //[Authorize]
+    [RoutePrefix("api/Customer")]
+    [Route("{action}")]
     public class CustomerController : ApiController
     {
         // GET api/values
@@ -20,17 +22,20 @@ namespace Bank.Controllers
         // GET api/values/5
         public string Get(int id)
         {
-            return "value";
+            return "get has been successfull";
         }
-
-        // GET api/values/5
-        public string login(int id)
+        
+        //POST
+        //login
+        public string login([FromBody]customerLogin login)
         {
-            return "value2";
+            Console.Write(login.username);
+            Console.Write(login.password);
+            return "success";
         }
 
         // POST api/values
-        public void Post([FromBody]customerModel value)
+        public void Post([FromBody]customerLogin value)
         {
             if (value.username == "h")
                 value.username = "t";

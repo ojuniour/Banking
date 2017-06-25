@@ -5,13 +5,24 @@ using System.Web;
 
 namespace Bank.Models
 {
-    public class customerModel
+    
+    public class customerLogin
     {
         public string username { get; set; }
         public string password { get; set; }
     }
 
-    public class customerResetPasswordModel
+    public class customerInfo
+    {
+
+        public string email { get; set; }
+        public string firstName { get; set; }
+        public string lastName { get; set; }
+    }
+
+
+
+        public class customerResetPasswordModel
     {
         public string email { get; set; }
         public string oldpassword { get; set; }
