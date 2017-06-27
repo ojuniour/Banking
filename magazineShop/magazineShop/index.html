@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Magazine Shop</title>
+	<meta charset="utf-8" />
+</head>
+<body ng-app="magazine">
+    <div ng-controller="customers">
+        <div ng-repeat="customers in custList">
+            <textarea>
+                {{customers}}
+            </textarea>
+        </div>
+        <div>
+            <div>customer:</div>
+            <div><input type="text" ng-model="cust" /></div>
+            <div><input type="button" ng-click="custSubmit" name="submit" /></div>
+        </div>
+
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.4/angular.js"></script>
+    <script src="Script/app.js"></script>
+</body>
+</html>
