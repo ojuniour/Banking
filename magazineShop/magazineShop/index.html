@@ -6,42 +6,15 @@
 </head>
 <body ng-app="magazine">
     <div ng-controller="customers">
-        <div>
-            
-            <select size="10" selected="selected" ng-model="customers"  ng-selected="selected" ng-options="customers.name for customers in custList">            
-            </select>
-            <div>
-                <div>Customer:</div>
-                <div><input type="text" placeholder="First and Lastname" ng-model="custName" /></div>
-                <div><input type="button" ng-click="custSubmit()" value="submit" /></div>
-            </div>
+        <div ng-repeat="customers in custList">
+            <textarea>
+                {{customers}}
+            </textarea>
         </div>
-
         <div>
-            <div>Subscription:</div>
-            <table border="1">
-                <tr>
-                    <th>Magazine</th>
-                    <th>Start Date</th>
-                    <th>End Date</th>
-                    <th>Rate</th>
-                </tr>
-                <tr ng-repeat="custSub in customers.sub">
-                    <td>{{custSub.magazine}}</td>
-                    <td>{{custSub.startDate}}</td>
-                    <td>{{custSub.endDate}}</td>
-                    <td>{{custSub.rate}}</td>
-                    <td><input type="button" value="Unsubscribe" ng-click="unsubscribe(custSub)" /></td>
-                </tr>
-            </table>
-            <div>Magazine:  <select ng-model="mag" ng-change="" ng-options="mag.name for mag in magazine"></select></div>
-            <div>Start Date:<input type="date" ng-model="startDate" /></div>
-            <div>End Date:  <input type="date" ng-model="endDate" /></div>
-            <input type="button" value="Subscribe" ng-click="subscribe()" />
-        </div>
-        REPEATER:
-        <div ng-repeat="r in fame">
-            {{r.name}}
+            <div>customer:</div>
+            <div><input type="text" ng-model="cust" /></div>
+            <div><input type="button" ng-click="custSubmit" name="submit" /></div>
         </div>
 
     </div>

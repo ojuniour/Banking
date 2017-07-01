@@ -7,7 +7,7 @@ function pageTitle($scope) {
     $scope.title = "Login Page";
 }
 
-function login($scope, $http) {
+function login($scope) {
     $scope.username = {
         value: null,
         regex: '[a-zA-Z0-9_.-]{3,20}',
@@ -24,13 +24,6 @@ function login($scope, $http) {
         console.log($scope.username);
         console.log($scope.password);
         console.log(form);
-    }
-    $scope.submit = function (form,$scope) {
-        console.log(form);
-        $http.post('http://localhost:58035/api/customer/login', "{ username: 'love', password: 'king' }")
-        .then (function(data){
-            console.log(data.data);
-        })
     }
 
 }

@@ -1,11 +1,6 @@
 ﻿var App = angular.module("App", ['ui.router', 'oc.lazyLoad']);
 /////////////////////////////////////////////////////////////////////
-App.config(['$httpProvider', function ($httpProvider) {
-    $httpProvider.defaults.headers.common = {};
-    $httpProvider.defaults.headers.post = {'Content-Type': 'application/json'};
-    $httpProvider.defaults.headers.put = {};
-    $httpProvider.defaults.headers.patch = {};
-}])
+
 App.controller("PageTitle", pageTitle);
 function pageTitle($scope) {
     $scope.title = "Welcome Page";
