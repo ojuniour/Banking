@@ -31,7 +31,7 @@ namespace Bank.Controllers
         {
             Console.Write(login.username);
             Console.Write(login.password);
-            return "success";
+            return "success with "+login.username+" and "+login.password ;
         }
 
         // POST api/values
