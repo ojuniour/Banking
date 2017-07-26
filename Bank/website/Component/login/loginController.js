@@ -27,7 +27,7 @@ function login($scope, $http) {
     }
     $scope.submit = function (form,$scope) {
         console.log(form);
-        $http.post('http://localhost:58035/api/customer/login', "{ username: 'love', password: 'king' }")
+        $http.post('http://localhost:58035/api/customer/login', { username: 'love', password: 'king' })
         .then (function(data){
             console.log(data.data);
         })

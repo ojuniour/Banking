@@ -2,13 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Data.Entity;
 
 namespace Bank.Models
 {
     
-    public class customerLogin
+   
+    public class customerLogin 
     {
-        public string username { get; set; }
+        DbContext db;
+        public string username { get;  set; }
         public string password { get; set; }
     }
 
@@ -22,7 +25,7 @@ namespace Bank.Models
 
 
 
-        public class customerResetPasswordModel
+    public class customerResetPasswordModel
     {
         public string email { get; set; }
         public string oldpassword { get; set; }

@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
 using System.Configuration;
-
 using Bank.Models;
 using Layers.BLL;
 
@@ -18,17 +17,23 @@ namespace Layers.DAL
     {
         SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings.ToString());
         DataTable dt = new DataTable();
+        SqlDataAdapter data = new SqlDataAdapter();
+        
         
         
 
         public void custLogin( customerLogin login)
         {
-
             SqlCommand cmd = new SqlCommand("Select * from ");
             cmd.ExecuteNonQuery();
 
+        }
+
+        public string login()
+        {
 
 
+            return "nothing";
         }
         
     }

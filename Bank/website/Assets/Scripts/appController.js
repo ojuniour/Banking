@@ -2,7 +2,7 @@
 /////////////////////////////////////////////////////////////////////
 App.config(['$httpProvider', function ($httpProvider) {
     $httpProvider.defaults.headers.common = {};
-    $httpProvider.defaults.headers.post = {'Content-Type': 'application/json'};
+    $httpProvider.defaults.headers.post = { headers: { 'Content-type': 'application/json;charset=utf-8' } };
     $httpProvider.defaults.headers.put = {};
     $httpProvider.defaults.headers.patch = {};
 }])
